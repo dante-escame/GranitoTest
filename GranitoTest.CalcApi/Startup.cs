@@ -1,3 +1,6 @@
+using GranitoTest.Application;
+using GranitoTest.Application.Interfaces;
+using GranitoTest.Application.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +31,23 @@ namespace GranitoTest.CalcApi
     {
 
       services.AddControllers();
+      services.AddScoped<ITaxCalcService, TaxCalcService>();
+      services.AddScoped<ITaxApiService, TaxApiService>();
+
+      string uriTaxApi = "";
+      
+      services.AddSingleton(uriTaxApi);
+
+      string uriGitHubProject = "";
+      Configuration.GetSection("UriGitHubProject").Bind(uriGitHubProject);
+      services.AddSingleton(uriGitHubProject);
+
+      GeneralUriConfiguration generalUriConfiguration = new GeneralUriConfiguration();
+      Configuration.GetSection("Uri").Bind(generalUriConfiguration);
+
+      //Create singleton from instance
+      services.AddSingleton(generalUriConfiguration);
+
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "GranitoTest.CalcApi", Version = "v1" });
@@ -43,8 +63,6 @@ namespace GranitoTest.CalcApi
         app.UseSwagger();
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GranitoTest.CalcApi v1"));
       }
-
-      app.UseHttpsRedirection();
 
       app.UseRouting();
 

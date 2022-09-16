@@ -2,6 +2,6 @@
 {
   public interface ITaxCalcService
   {
-    double CalculateFinalValueWithTax(double initialValue, double tax, int meses);
+    double CalculateFinalValueWithTax(double initialValue, double tax, int months);
   }
 }

@@ -29,23 +29,16 @@ namespace GranitoTest.CalcApi
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-
       services.AddControllers();
+
+      // injecao de dependencia(servicos)
       services.AddScoped<ITaxCalcService, TaxCalcService>();
       services.AddScoped<ITaxApiService, TaxApiService>();
 
-      string uriTaxApi = "";
-      
-      services.AddSingleton(uriTaxApi);
-
-      string uriGitHubProject = "";
-      Configuration.GetSection("UriGitHubProject").Bind(uriGitHubProject);
-      services.AddSingleton(uriGitHubProject);
-
+      // URIs (TaxApi e link do projeto do Github)
       GeneralUriConfiguration generalUriConfiguration = new GeneralUriConfiguration();
       Configuration.GetSection("Uri").Bind(generalUriConfiguration);
-
-      //Create singleton from instance
+      // injecao de dependencia - lifetime da API(singleton)
       services.AddSingleton(generalUriConfiguration);
 
       services.AddSwaggerGen(c =>
@@ -65,8 +58,6 @@ namespace GranitoTest.CalcApi
       }
 
       app.UseRouting();
-
-      app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {

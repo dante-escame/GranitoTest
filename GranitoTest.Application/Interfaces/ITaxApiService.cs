@@ -9,5 +9,6 @@ namespace GranitoTest.Application.Interfaces
   public interface ITaxApiService
   {
     Task<double> GetTax();
+    public string GetUriGitHubProject();
   }
 }

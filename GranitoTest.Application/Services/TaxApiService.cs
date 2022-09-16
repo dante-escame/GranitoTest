@@ -10,20 +10,25 @@ namespace GranitoTest.Application.Services
 {
   public class TaxApiService : ITaxApiService
   {
-    private readonly string _uriTaxApi;
+    private readonly GeneralUriConfiguration _generalUriConfiguration;
 
     public TaxApiService(GeneralUriConfiguration generalUriConfiguration)
     {
-      _uriTaxApi = generalUriConfiguration.TaxApi;
+      _generalUriConfiguration = generalUriConfiguration;
     }
 
     public async Task<double> GetTax()
     {
       var httpClient = new HttpClient();
-      var response = await httpClient.GetAsync(_uriTaxApi);
+      var response = await httpClient.GetAsync(_generalUriConfiguration.TaxApi);
 
       string apiResponse = await response.Content.ReadAsStringAsync();
       return double.Parse(apiResponse, System.Globalization.CultureInfo.InvariantCulture);
+    }
+
+    public string GetUriGitHubProject()
+    {
+      return _generalUriConfiguration.GitHubProject;
     }
   }
 }

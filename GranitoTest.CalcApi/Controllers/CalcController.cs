@@ -1,5 +1,4 @@
-﻿using GranitoTest.Application;
-using GranitoTest.Application.Interfaces;
+﻿using GranitoTest.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net.Http;
@@ -7,33 +6,31 @@ using System.Threading.Tasks;
 
 namespace GranitoTest.CalcApi.Controllers
 {
+  [Route("api/[controller]")]
   [ApiController]
   public class CalcController : ControllerBase
   {
     private readonly ITaxCalcService _taxCalcService;
     private readonly ITaxApiService _taxApiService;
-    private readonly string _uriGitHubProject;
 
-    public CalcController(ITaxCalcService taxCalcService, ITaxApiService taxApiService, GeneralUriConfiguration generalUriConfiguration)
+    public CalcController(ITaxCalcService taxCalcService, ITaxApiService taxApiService)
     {
       _taxCalcService = taxCalcService;
       _taxApiService = taxApiService;
-      _uriGitHubProject = generalUriConfiguration.GitHubProject;
     }
 
     [HttpGet]
-    [Route("calculajuros")]
-    public async Task<IActionResult> GetCalculatedTax(double initialValue, int meses)
+    public async Task<IActionResult> GetCalculatedTax(double initialValue, int months)
     {
       double tax = await _taxApiService.GetTax();
-      return Ok(_taxCalcService.CalculateFinalValueWithTax(initialValue, tax, meses).ToString("F"));
+      return Ok(_taxCalcService.CalculateFinalValueWithTax(initialValue, tax, months).ToString("F"));
     }
 
     [HttpGet]
     [Route("showmethecode")]
     public IActionResult GetUriGitHubProject()
     {
-      return Ok(_uriGitHubProject);
+      return Ok(_taxApiService.GetUriGitHubProject());
     }
   }
 }

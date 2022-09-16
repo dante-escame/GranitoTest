@@ -8,7 +8,7 @@ namespace GranitoTest.Application.Services
   {
     public double CalculateFinalValueWithTax(double initialValue, double tax, int meses)
     {
-      return initialValue * Math.Pow(1 + tax, meses);
+      return Math.Truncate(initialValue * Math.Pow(1 + tax, meses) * 100) / 100;
     }
   }
 }

@@ -1,6 +1,5 @@
 ﻿using GranitoTest.Application.Interfaces;
 using System;
-using System.Threading.Tasks;
 
 namespace GranitoTest.Application.Services
 {

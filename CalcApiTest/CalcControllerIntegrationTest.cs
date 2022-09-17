@@ -1,9 +1,4 @@
-﻿using FakeItEasy;
-using GranitoTest.Application.Interfaces;
-using GranitoTest.Application.Services;
-using GranitoTest.CalcApi.Controllers;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xunit;
 
 namespace GranitoTest.Tests

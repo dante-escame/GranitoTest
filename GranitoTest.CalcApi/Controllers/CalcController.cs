@@ -1,7 +1,5 @@
 ﻿using GranitoTest.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace GranitoTest.CalcApi.Controllers

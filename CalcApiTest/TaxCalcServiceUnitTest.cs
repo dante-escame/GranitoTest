@@ -8,7 +8,7 @@ using Xunit;
 
 namespace GranitoTest.Tests
 {
-  public class TaxCalcServiceTest
+  public class TaxCalcServiceUnitTest
   {
     [Fact]
     public void CalculateFinalValueWithTax_WhenCalled_ReturnsCorrectCalculatedTax()

@@ -3,7 +3,7 @@
 namespace GranitoTest.TaxApi.Controllers
 {
   [ApiController]
-  [Route("[controller]")]
+  [Route("api/[controller]")]
   public class TaxController : ControllerBase
   {
     [HttpGet]

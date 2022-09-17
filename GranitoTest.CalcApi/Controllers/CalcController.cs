@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GranitoTest.CalcApi.Controllers
 {
-  [Route("api/[controller]")]
+  [Route("api")]
   [ApiController]
   public class CalcController : ControllerBase
   {
@@ -20,6 +20,7 @@ namespace GranitoTest.CalcApi.Controllers
     }
 
     [HttpGet]
+    [Route("calculajuros")]
     public async Task<IActionResult> GetCalculatedTax(double initialValue, int months)
     {
       double tax = await _taxApiService.GetTax();

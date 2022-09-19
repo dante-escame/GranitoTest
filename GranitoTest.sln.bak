@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GranitoTest.CalcApi", "Gran
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GranitoTest.Tests", "CalcApiTest\GranitoTest.Tests.csproj", "{FF3DF91E-9D18-41D8-AB1E-8AECC9E57892}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A854B5AB-6D81-4AE9-A883-5E5CA9AD001B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{FF3DF91E-9D18-41D8-AB1E-8AECC9E57892}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF3DF91E-9D18-41D8-AB1E-8AECC9E57892}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF3DF91E-9D18-41D8-AB1E-8AECC9E57892}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A854B5AB-6D81-4AE9-A883-5E5CA9AD001B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A854B5AB-6D81-4AE9-A883-5E5CA9AD001B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A854B5AB-6D81-4AE9-A883-5E5CA9AD001B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A854B5AB-6D81-4AE9-A883-5E5CA9AD001B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

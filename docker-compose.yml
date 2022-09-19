@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  granitotest.calcapi:
+    image: ${DOCKER_REGISTRY-}granitotestcalcapi
+    expose:
+      - "5000"
+    ports:
+      - "443:5000"
+    build:
+      context: .
+      dockerfile: GranitoTest.CalcApi/Dockerfile
+    depends_on:
+      - granitotest.taxapi
+    links: 
+      - granitotest.taxapi
+  granitotest.taxapi:
+    image: ${DOCKER_REGISTRY-}granitotesttaxapi
+    expose:
+      - "5001"
+    ports:
+      - "444:5001"
+    build:
+      context: .
+      dockerfile: GranitoTest.TaxApi/Dockerfile

@@ -3,10 +3,8 @@ version: '3.4'
 services:
   granitotest.calcapi:
     image: ${DOCKER_REGISTRY-}granitotestcalcapi
-    expose:
-      - "5000"
     ports:
-      - "443:5000"
+      - "5000:80"
     build:
       context: .
       dockerfile: GranitoTest.CalcApi/Dockerfile
@@ -14,12 +12,17 @@ services:
       - granitotest.taxapi
     links: 
       - granitotest.taxapi
+    networks:
+      - docker_network
   granitotest.taxapi:
     image: ${DOCKER_REGISTRY-}granitotesttaxapi
-    expose:
-      - "5001"
     ports:
-      - "444:5001"
+      - "5001:81"
     build:
       context: .
       dockerfile: GranitoTest.TaxApi/Dockerfile
+    networks:
+      - docker_network
+networks:
+  docker_network:
+    driver: bridge

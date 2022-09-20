@@ -1,3 +1,4 @@
+using GranitoTest.TaxApi.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,24 +23,12 @@ namespace GranitoTest.TaxApi
     }
 
     public IConfiguration Configuration { get; }
-    readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddCors(options =>
-      {
-        options.AddPolicy(name: MyAllowSpecificOrigins,
-                          policy =>
-                          {
-                            policy.WithOrigins("http://example.com",
-                                                    "http://localhost",
-                                                    "http://127.0.0.1",
-                                                    "http://host.docker.internal");
-                          });
-      });
-
       services.AddControllers();
+
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "GranitoTest.TaxApi", Version = "v1" });
@@ -49,12 +38,12 @@ namespace GranitoTest.TaxApi
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      /*if (env.IsDevelopment())
-      {*/
+      if (env.IsDevelopment())
+      {
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GranitoTest.TaxApi v1"));
-      //}
+      }
 
       //app.UseHttpsRedirection();
 

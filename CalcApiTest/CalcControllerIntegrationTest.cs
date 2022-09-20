@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using GranitoTest.Application.Utils;
+using System.Text.Json;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace GranitoTest.Tests
@@ -18,19 +20,19 @@ namespace GranitoTest.Tests
       };
 
       // Act
-      var response = await TestClient.GetAsync("http://127.0.0.1:5001/api/calculajuros?initialValue=100&months=5");
+      var response = await TestClient.GetAsync("http://127.0.0.1:5000/api/calculajuros?valorinicial=100&meses=5");
       string apiResponse = await response.Content.ReadAsStringAsync();
 
       // Assert
       response.EnsureSuccessStatusCode();
-      Assert.Equal(requestData.expectedResult.ToString("F"), apiResponse);
+      Assert.Equal("{\"success\":true,\"value\":\"105,10\",\"messages\":null}", apiResponse);
     }
 
     [Fact]
     public async Task GetUriGitHubProject_WhenCalled_ReturnsOk()
     {
       // Arrange
-      var request = "http://127.0.0.1:5001/api/showmethecode";
+      var request = "http://127.0.0.1:5000/api/showmethecode";
       
       // Act
       var response = await TestClient.GetAsync(request);

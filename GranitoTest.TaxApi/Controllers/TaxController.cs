@@ -9,8 +9,8 @@ namespace GranitoTest.TaxApi.Controllers
     [HttpGet]
     public IActionResult GetTaxRate()
     {
-      return Ok(0.01); // _todo_
-      // REST Pattern - return code
+      return Ok(0.01);
+
     }
   }
 }

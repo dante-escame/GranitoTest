@@ -2,6 +2,9 @@
   "profiles": {
     "Docker Compose": {
       "commandName": "DockerCompose",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "granitotest.calcapi",
+      "composeLaunchUrl": "http://localhost:{ServicePort}/swagger",
       "commandVersion": "1.0",
       "serviceActions": {
         "granitotest.calcapi": "StartDebugging",

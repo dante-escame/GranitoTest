@@ -1,4 +1,5 @@
 ﻿using GranitoTest.Application.Interfaces;
+using GranitoTest.Application.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -19,10 +20,18 @@ namespace GranitoTest.CalcApi.Controllers
 
     [HttpGet]
     [Route("calculajuros")]
-    public async Task<IActionResult> GetCalculatedTax(double initialValue, int months)
+    public async Task<IActionResult> GetCalculatedTax(double valorinicial, int meses)
     {
       double tax = await _taxApiService.GetTax();
-      return Ok(_taxCalcService.CalculateFinalValueWithTax(initialValue, tax, months).ToString("F"));
+
+      var apiReturn = new ApiReturn<string>
+      {
+        Success = true,
+        Value = _taxCalcService.CalculateFinalValueWithTax(valorinicial, tax, meses).ToString("F"),
+        Messages = null
+      };
+      
+      return Ok(apiReturn);
     }
 
     [HttpGet]

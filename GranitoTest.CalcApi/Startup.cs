@@ -31,6 +31,7 @@ namespace GranitoTest.CalcApi
       // URIs (TaxApi e link do projeto do Github)
       GeneralUriConfiguration generalUriConfiguration = new GeneralUriConfiguration();
       Configuration.GetSection("Uri").Bind(generalUriConfiguration);
+
       // injecao de dependencia - lifetime da API(singleton)
       services.AddSingleton(generalUriConfiguration);
 
@@ -43,12 +44,12 @@ namespace GranitoTest.CalcApi
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      /*if (env.IsDevelopment())
-      {*/
+      if (env.IsDevelopment())
+      {
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GranitoTest.CalcApi v1"));
-      //}
+      }
 
       app.UseRouting();
 

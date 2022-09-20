@@ -3,11 +3,11 @@
 ---
 
 ## Explicando algumas palavras chaves do código interno
-###Tax
+### Tax
 Juros
-###Calc 
+### Calc 
 Cálculo
-###Test
+### Test
 Foi utilizado em dois contextos: 
 1. como prova/teste de aprendizagem("GranitoTest" -> "Teste da Granito").
 2. em várias classes e métodos do projeto de testes("GranitoTest.Tests") que contém o teste unitário e o teste de integração.

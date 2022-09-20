@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GranitoTest.Application", "GranitoTest.Application\GranitoTest.Application.csproj", "{A81A0047-260C-42C3-AAC4-12DC1C585DEA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GranitoTest.TaxApi", "GranitoTest.TaxApi\GranitoTest.TaxApi.csproj", "{5D263DCE-0634-48A5-B4C0-4F134A166067}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GranitoTest.CalcApi", "GranitoTest.CalcApi\GranitoTest.CalcApi.csproj", "{1FFFCD69-5D7F-413A-B185-8A892FF414CD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GranitoTest.Tests", "CalcApiTest\GranitoTest.Tests.csproj", "{FF3DF91E-9D18-41D8-AB1E-8AECC9E57892}"
@@ -23,10 +21,6 @@ Global
 		{A81A0047-260C-42C3-AAC4-12DC1C585DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A81A0047-260C-42C3-AAC4-12DC1C585DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A81A0047-260C-42C3-AAC4-12DC1C585DEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D263DCE-0634-48A5-B4C0-4F134A166067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D263DCE-0634-48A5-B4C0-4F134A166067}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D263DCE-0634-48A5-B4C0-4F134A166067}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D263DCE-0634-48A5-B4C0-4F134A166067}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1FFFCD69-5D7F-413A-B185-8A892FF414CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1FFFCD69-5D7F-413A-B185-8A892FF414CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FFFCD69-5D7F-413A-B185-8A892FF414CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
